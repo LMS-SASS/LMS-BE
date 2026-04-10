@@ -1,0 +1,3 @@
+- [Thoth Architecture Decisions](project_thoth_overview.md) — NestJS + MikroORM + DDD monolith, tenant column, bilingual API, graduated depth
+- [User Profile - Hussien](user_hussien.md) — Backend dev at Tahakom, NestJS expert, prefers simple pragmatic architecture
+- [Keep It Simple](feedback_simplicity.md) — User pushes back on over-engineering, always prefer simplest correct solution
