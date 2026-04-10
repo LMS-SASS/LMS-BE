@@ -21,11 +21,10 @@ Thumbs.db
 coverage/
 
 # Docker
-docker-compose.override.yml
 ./node_modules
-node_modules
-dist
-dist/
+/node_modules
+/dist
+./dist/
 .idea
 .claude
 .specify
@@ -33,3 +32,4 @@ dist/
 *.tmp
 *.bak
 .env
+/node_modules/
