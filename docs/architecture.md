@@ -1,4 +1,4 @@
-autoMemoryEnabled# Thoth Backend — Architecture Design
+autoMemoryEnabled# LMS-SASS Backend — Architecture Design
 
 > This document captures the architecture decisions made during the brainstorming phase.
 > It is the single source of truth for how the backend is designed and why.
@@ -9,7 +9,7 @@ autoMemoryEnabled# Thoth Backend — Architecture Design
 
 ## 1. Understanding Summary
 
-- **What:** Backend for Thoth — an AI-powered school library management SaaS platform
+- **What:** Backend for LMS-SASS — an AI-powered school library management SaaS platform
 - **Why:** Transform school libraries from back-office systems into discovery and learning platforms
 - **Who:** School groups, multi-program schools, districts — Egyptian and Gulf markets
 - **Scale:** 3–4 programs per school, 1–2 branches, 10K+ students, 200K+ books per library
@@ -21,7 +21,7 @@ autoMemoryEnabled# Thoth Backend — Architecture Design
 ## 2. Organizational Model
 
 ```
-Platform (Thoth SaaS)
+Platform (LMS-SASS SaaS)
 ├── School Group (e.g., "EEP")
 │   ├── School: SILS (IG British)
 │   │   ├── Branch: Main Campus
@@ -236,7 +236,7 @@ Tenant-scoped tables (every row has program_id + branch_id):
 
 | Role | Scope | Example |
 |---|---|---|
-| Super Admin | Platform-wide | Thoth ops team |
+| Super Admin | Platform-wide | LMS-SASS ops team |
 | Group Admin | School group | EEP admin across SILS + WILS |
 | School Admin | School | SILS principal |
 | Librarian | Program + Branch | SILS IG librarian at main campus |
@@ -401,7 +401,7 @@ All response messages live in `src/core/i18n/messages.ts` — one file, both lan
 
 | Service | Image | Purpose |
 |---|---|---|
-| thoth-api | Custom (multi-stage Node 20 Alpine) | NestJS application |
+| lms-sass-api | Custom (multi-stage Node 20 Alpine) | NestJS application |
 | postgres | postgres:16-alpine | Primary database |
 | elasticsearch | elasticsearch:8 (single node) | Search and discovery |
 | keycloak | keycloak:24 (dev mode) | Identity and SSO |

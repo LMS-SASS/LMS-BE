@@ -1,6 +1,6 @@
-# Thoth Backend
+# LMS-SASS Backend
 
-The core backend service for Thoth — an AI-powered school library management system for Egyptian and Gulf markets.
+The core backend service for LMS-SASS — an AI-powered school library management system for Egyptian and Gulf markets.
 
 ## Quick Start
 
@@ -14,8 +14,8 @@ The core backend service for Thoth — an AI-powered school library management s
 
 ```bash
 # Clone the repository
-git clone https://github.com/ThothLMS/thoth-be.git
-cd thoth-be
+git clone https://github.com/LMS-SASS/LMS-SASS.git
+cd LMS-SASS
 
 # Install dependencies
 npm install
@@ -60,7 +60,7 @@ Swagger docs at `http://localhost:3000/api/docs`.
 ## Project Structure
 
 ```
-thoth-be/
+LMS-SASS/
 ├── src/
 │   ├── app.module.ts                # Root module
 │   ├── main.ts                      # Bootstrap, Swagger, global pipes/filters
@@ -562,7 +562,7 @@ npx mikro-orm seeder:run --class=RoleSeeder  # run specific seeder
 
 ```bash
 docker-compose up -d                 # start all services in background
-docker-compose logs -f thoth-api     # follow API logs
+docker-compose logs -f lms-sass-api     # follow API logs
 docker-compose down                  # stop all services
 docker-compose down -v               # stop and remove volumes (reset data)
 ```
@@ -571,8 +571,8 @@ docker-compose down -v               # stop and remove volumes (reset data)
 
 | Service | Port | URL |
 |---|---|---|
-| thoth-api | 3000 | http://localhost:3000 |
-| PostgreSQL | 5432 | `postgresql://thoth:thoth@localhost:5432/thoth` |
+| lms-sass-api | 3000 | http://localhost:3000 |
+| PostgreSQL | 5432 | `postgresql://lms_sass:lms_sass@localhost:5432/lms_sass` |
 | Elasticsearch | 9200 | http://localhost:9200 |
 | Keycloak | 8080 | http://localhost:8080 |
 | Swagger Docs | 3000 | http://localhost:3000/api/docs |
@@ -582,7 +582,7 @@ docker-compose down -v               # stop and remove volumes (reset data)
 ## Organizational Model
 
 ```
-Platform (Thoth SaaS)
+Platform (LMS-SASS SaaS)
 ├── School Group (e.g., "EEP")
 │   ├── School: SILS → Program: IG British → Branch: Main → Library
 │   └── School: WILS → Program: American → Branch: Main → Library

@@ -44,8 +44,8 @@ async function bootstrap() {
 
   // Swagger
   const config = new DocumentBuilder()
-    .setTitle("Thoth API")
-    .setDescription("Thoth Library Management System — API Documentation")
+    .setTitle("LMS-SASS API")
+    .setDescription("LMS-SASS Library Management System — API Documentation")
     .setVersion("0.1.0")
     .addBearerAuth()
     .build();
@@ -58,7 +58,7 @@ async function bootstrap() {
 
   const port = process.env.PORT ?? 3000;
   await app.listen(port);
-  logger.log(`Thoth API running on port ${port}`);
+  logger.log(`LMS-SASS API running on port ${port}`);
   logger.log(`Swagger docs at http://localhost:${port}/api/docs`);
 }
 

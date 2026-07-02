@@ -168,6 +168,13 @@ export const MESSAGES: Record<number, MessageEntry> = {
       ar: "يوجد كتاب بنفس رقم ISBN في الفهرس بالفعل.",
     },
   },
+  6002: {
+    title: { en: "Catalog import failed", ar: "فشل استيراد الفهرس" },
+    description: {
+      en: "Unable to fetch books from the external catalog source.",
+      ar: "تعذر جلب الكتب من مصدر الفهرس الخارجي.",
+    },
+  },
 
   // 9xxx — System
   9001: {

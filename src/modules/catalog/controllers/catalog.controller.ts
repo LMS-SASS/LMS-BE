@@ -20,10 +20,27 @@ export class CatalogController {
     );
   }
 
+  @Post("import")
+  @ApiOperation({ summary: "Import books from the Gutendex catalog" })
+  async importFromGutendex(@Req() req: Request) {
+    return this.catalogService.importFromGutendex(
+      req.tenant!.programId!,
+      req.tenant!.branchId!,
+    );
+  }
+
   @Get()
   @ApiOperation({ summary: "List books with pagination" })
   async findAll(@Query() pagination: PaginationDto) {
     return this.catalogService.findAll(pagination);
+  }
+
+  @Get("gutendex")
+  @ApiOperation({
+    summary: "Fetch books from Gutendex without persisting them",
+  })
+  async fetchGutendexBooks() {
+    return this.catalogService.fetchGutendexBooks();
   }
 
   @Get(":id")

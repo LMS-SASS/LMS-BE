@@ -4,7 +4,7 @@ Guidance for Claude Code when working in this repository. Keep changes consisten
 
 ## Project Overview
 
-Thoth is an AI-powered school library management SaaS. This repo (`thoth-be`) is the core backend.
+LMS-SASS is an AI-powered school library management SaaS. This repo (`lms-sass`) is the core backend.
 
 - **Staff Portal** — catalog, circulation (check-in/out, renewals, holds, fines), patrons, acquisitions, serials, inventory, reporting, approvals.
 - **Public Portal (OPAC)** — search/discovery, availability, holds/reservations, reading lists, digital/physical resources.

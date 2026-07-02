@@ -1,8 +1,8 @@
 {
-  "name": "thoth-be",
+  "name": "lms-sass",
   "version": "0.1.0",
-  "description": "The core backend for Thoth — AI-powered school library management system",
-  "author": "ThothLMS",
+  "description": "The core backend for LMS-SASS — AI-powered school library management system",
+  "author": "LMS-SASS",
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
@@ -26,6 +26,7 @@
     "@mikro-orm/nestjs": "^7.0.1",
     "@mikro-orm/postgresql": "^7.0.10",
     "@mikro-orm/seeder": "^7.0.10",
+    "@nestjs/axios": "^4.0.1",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",
@@ -33,6 +34,7 @@
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/swagger": "^11.2.7",
     "@nestjs/terminus": "^11.1.1",
+    "axios": "^1.18.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
     "helmet": "^8.1.0",
@@ -85,6 +87,9 @@
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "moduleNameMapper": {
+      "^@mikro-orm/(postgresql|core)$": "<rootDir>/test/mikro-orm-postgresql.mock.ts"
     },
     "collectCoverageFrom": [
       "**/*.(t|j)s"
