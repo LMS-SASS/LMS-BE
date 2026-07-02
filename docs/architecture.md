@@ -1,4 +1,4 @@
-# Thoth Backend — Architecture Design
+autoMemoryEnabled# Thoth Backend — Architecture Design
 
 > This document captures the architecture decisions made during the brainstorming phase.
 > It is the single source of truth for how the backend is designed and why.
