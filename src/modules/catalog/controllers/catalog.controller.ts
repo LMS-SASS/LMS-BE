@@ -49,3 +49,17 @@ export class CatalogController {
     return this.catalogService.findById(id);
   }
 }
+
+@ApiTags("Catalog")
+@Controller("api/v1/catalog/authors")
+export class CatalogAuthorsController {
+  constructor(private readonly catalogService: CatalogService) {}
+
+  @Get()
+  @ApiOperation({
+    summary: "Fetch authors from the mock API without persisting them",
+  })
+  async fetchAuthors() {
+    return this.catalogService.fetchAuthors();
+  }
+}

@@ -1,6 +1,9 @@
 import { Inject, Injectable, Logger } from "@nestjs/common";
 import { EntityManager } from "@mikro-orm/postgresql";
 import { EventEmitter2 } from "@nestjs/event-emitter";
+import { HttpService } from "@nestjs/axios";
+import { ConfigService } from "@nestjs/config";
+import { firstValueFrom } from "rxjs";
 import { Book } from "../entities/book.entity";
 import { CreateBookDto } from "../dto/create-book.dto";
 import { BusinessException } from "../../../common/presentation/business.exception";
@@ -9,6 +12,12 @@ import { PaginationDto } from "../../../common/application/pagination.dto";
 import { GUTENDEX_CLIENT } from "../interfaces/gutendex-client.interface";
 import type { IGutendexClient } from "../interfaces/gutendex-client.interface";
 import { GutendexBookDto } from "../dto/gutendex-book.dto";
+
+export interface MockAuthorDto {
+  id: number;
+  name: string;
+  surname: string;
+}
 
 // Gutendex has no publication year field; 0 is a sentinel meaning "unknown"
 // rather than defaulting to the import date, which would misrepresent the data.
@@ -28,6 +37,8 @@ export class CatalogService {
     private readonly eventEmitter: EventEmitter2,
     @Inject(GUTENDEX_CLIENT)
     private readonly gutendexClient: IGutendexClient,
+    private readonly httpService: HttpService,
+    private readonly configService: ConfigService,
   ) {}
 
   async createBook(
@@ -103,6 +114,16 @@ export class CatalogService {
   // touching the database, so it works even when no Postgres is available.
   async fetchGutendexBooks(): Promise<GutendexBookDto[]> {
     return (await this.gutendexClient.fetchBooks()).results;
+  }
+
+  // POC: persistence-free passthrough — fetches authors from the mock API
+  // without touching the database.
+  async fetchAuthors(): Promise<MockAuthorDto[]> {
+    const baseUrl = this.configService.get<string>("AUTHORS_MOCK_BASE_URL");
+    const response = await firstValueFrom(
+      this.httpService.get<MockAuthorDto[]>(`${baseUrl}/authors`),
+    );
+    return response.data;
   }
 
   async importFromGutendex(

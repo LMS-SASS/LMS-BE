@@ -24,4 +24,9 @@ export const APP_CONFIG_VALIDATION = Joi.object({
 
   // Gutendex (external catalog import source)
   GUTENDEX_BASE_URL: Joi.string().default("https://gutendex.com"),
+
+  // Authors mock (external mock catalog source)
+  AUTHORS_MOCK_BASE_URL: Joi.string().default(
+    "https://my-json-server.typicode.com/dmitrijt9/book-api-mock",
+  ),
 });
